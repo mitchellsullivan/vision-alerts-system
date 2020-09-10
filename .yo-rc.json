@@ -1,0 +1,43 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.visiongraphics_inc.alert_system",
+      "nativeLanguage": "en"
+    },
+    "jhipsterVersion": "6.10.1",
+    "applicationType": "monolith",
+    "baseName": "VisionAlertSystem",
+    "packageName": "com.visiongraphics_inc.alert_system",
+    "packageFolder": "com/visiongraphics_inc/alert_system",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mssql",
+    "prodDatabaseType": "mssql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": true,
+    "jwtSecretKey": "NGY0NmI4ZTQ5YTdlNzAwMWM1OWExZGE5N2E1NjNmYTM2YjRmYmJlMzE3ZTk0ZjdhNjhlOTM0ZTkxYjVhNTkwOWE2OTZiZmVmMTA5MjZjN2JjMGQ5OTI3YmZhOGMzMDM4YTc3MmE3OTkwYTY3MDhjYjQyMWQ4YzQ1Mjg0ZmZhNGY=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "flatly",
+    "clientThemeVariant": "primary",
+    "creationTimestamp": 1599750243369,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": true,
+    "nativeLanguage": "en",
+    "languages": ["en", "es"],
+    "blueprints": []
+  }
+}
