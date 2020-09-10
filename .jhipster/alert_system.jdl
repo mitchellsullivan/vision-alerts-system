@@ -1,0 +1,27 @@
+
+entity AlertEvent {
+	applicationName String required
+  	moduleName String
+    actionName String 
+    suggestedPriority AlertPriority 
+    message String required
+}
+
+enum AlertPriority {
+	TRACE, DEBUG, INFO, WARNING, ERROR, FATAL
+}
+
+entity StackItem {
+	fileName String required
+    className String required
+    methodName String required
+    lineNumber Long required
+}
+
+relationship OneToMany {
+	AlertEvent{stackItem} to StackItem{alertEvent}
+}
+
+dto * with mapstruct
+paginate * with infinite-scroll
+filter *

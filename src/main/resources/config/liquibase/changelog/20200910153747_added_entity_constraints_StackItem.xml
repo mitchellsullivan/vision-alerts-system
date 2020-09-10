@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity StackItem.
+    -->
+    <changeSet id="20200910153747-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="alert_event_id"
+                                 baseTableName="stack_item"
+                                 constraintName="fk_stack_item_alert_event_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="alert_event"/>
+
+    </changeSet>
+</databaseChangeLog>

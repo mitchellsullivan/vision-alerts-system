@@ -1,0 +1,69 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="visionAlertSystemApp.alertEvent.home.title">Alert Events</span>
+
+<!--        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-alert-event" [routerLink]="['/alert-event/new']">-->
+<!--            <fa-icon icon="plus"></fa-icon>-->
+<!--            <span  jhiTranslate="visionAlertSystemApp.alertEvent.home.createLabel">-->
+<!--            Create a new Alert Event-->
+<!--            </span>-->
+<!--        </button>-->
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="alertEvents?.length === 0">
+        <span jhiTranslate="visionAlertSystemApp.alertEvent.home.notFound">No alertEvents found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="alertEvents && alertEvents.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="applicationName"><span jhiTranslate="visionAlertSystemApp.alertEvent.applicationName">Application Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="moduleName"><span jhiTranslate="visionAlertSystemApp.alertEvent.moduleName">Module Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="actionName"><span jhiTranslate="visionAlertSystemApp.alertEvent.actionName">Action Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="suggestedPriority"><span jhiTranslate="visionAlertSystemApp.alertEvent.suggestedPriority">Suggested Priority</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="message"><span jhiTranslate="visionAlertSystemApp.alertEvent.message">Message</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let alertEvent of alertEvents ;trackBy: trackId">
+                    <td><a [routerLink]="['/alert-event', alertEvent.id, 'view']">{{ alertEvent.id }}</a></td>
+                    <td>{{ alertEvent.applicationName }}</td>
+                    <td>{{ alertEvent.moduleName }}</td>
+                    <td>{{ alertEvent.actionName }}</td>
+                    <td jhiTranslate="{{ 'visionAlertSystemApp.AlertPriority.' + alertEvent.suggestedPriority }}">{{ alertEvent.suggestedPriority }}</td>
+                    <td>{{ alertEvent.message }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/alert-event', alertEvent.id, 'view']"
+                                    class="btn btn-primary btn-md">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+<!--                            <button type="submit"-->
+<!--                                    [routerLink]="['/alert-event', alertEvent.id, 'edit']"-->
+<!--                                    class="btn btn-primary btn-sm">-->
+<!--                                <fa-icon icon="pencil-alt"></fa-icon>-->
+<!--                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>-->
+<!--                            </button>-->
+
+                            <button type="submit" (click)="delete(alertEvent)"
+                                    class="btn btn-danger btn-md">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

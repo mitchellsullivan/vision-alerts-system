@@ -1,0 +1,27 @@
+{
+  "visionAlertSystemApp": {
+    "alertEvent": {
+      "home": {
+        "title": "Alert Events",
+        "createLabel": "Crear nuevo Alert Event",
+        "createOrEditLabel": "Crear o editar Alert Event",
+        "notFound": "Ningún Alert Events encontrado"
+      },
+      "created": "Un nuevo Alert Event ha sido creado con el identificador {{ param }}",
+      "updated": "Un Alert Event ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Alert Event ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Alert Event {{ id }}?"
+      },
+      "detail": {
+        "title": "Alert Event"
+      },
+      "applicationName": "Application Name",
+      "moduleName": "Module Name",
+      "actionName": "Action Name",
+      "suggestedPriority": "Suggested Priority",
+      "message": "Message",
+      "stackItem": "Stack Item"
+    }
+  }
+}

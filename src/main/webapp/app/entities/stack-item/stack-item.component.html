@@ -1,0 +1,75 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="visionAlertSystemApp.stackItem.home.title">Stack Items</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-stack-item" [routerLink]="['/stack-item/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="visionAlertSystemApp.stackItem.home.createLabel">
+            Create a new Stack Item
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="stackItems?.length === 0">
+        <span jhiTranslate="visionAlertSystemApp.stackItem.home.notFound">No stackItems found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="stackItems && stackItems.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="sequenceNo"><span jhiTranslate="visionAlertSystemApp.stackItem.sequenceNo">Sequence No</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="fileName"><span jhiTranslate="visionAlertSystemApp.stackItem.fileName">File Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="className"><span jhiTranslate="visionAlertSystemApp.stackItem.className">Class Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="methodName"><span jhiTranslate="visionAlertSystemApp.stackItem.methodName">Method Name</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="lineNumber"><span jhiTranslate="visionAlertSystemApp.stackItem.lineNumber">Line Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="alertEventId"><span jhiTranslate="visionAlertSystemApp.stackItem.alertEvent">Alert Event</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let stackItem of stackItems ;trackBy: trackId">
+                    <td><a [routerLink]="['/stack-item', stackItem.id, 'view']">{{ stackItem.id }}</a></td>
+                    <td>{{ stackItem.sequenceNo }}</td>
+                    <td>{{ stackItem.fileName }}</td>
+                    <td>{{ stackItem.className }}</td>
+                    <td>{{ stackItem.methodName }}</td>
+                    <td>{{ stackItem.lineNumber }}</td>
+                    <td>
+                        <div *ngIf="stackItem.alertEventId">
+                            <a [routerLink]="['/alert-event', stackItem.alertEventId , 'view']" >{{ stackItem.alertEventId }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/stack-item', stackItem.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/stack-item', stackItem.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(stackItem)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

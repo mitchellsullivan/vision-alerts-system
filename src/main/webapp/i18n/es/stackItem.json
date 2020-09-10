@@ -1,0 +1,27 @@
+{
+  "visionAlertSystemApp": {
+    "stackItem": {
+      "home": {
+        "title": "Stack Items",
+        "createLabel": "Crear nuevo Stack Item",
+        "createOrEditLabel": "Crear o editar Stack Item",
+        "notFound": "Ningún Stack Items encontrado"
+      },
+      "created": "Un nuevo Stack Item ha sido creado con el identificador {{ param }}",
+      "updated": "Un Stack Item ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Stack Item ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Stack Item {{ id }}?"
+      },
+      "detail": {
+        "title": "Stack Item"
+      },
+      "sequenceNo": "Sequence No",
+      "fileName": "File Name",
+      "className": "Class Name",
+      "methodName": "Method Name",
+      "lineNumber": "Line Number",
+      "alertEvent": "Alert Event"
+    }
+  }
+}

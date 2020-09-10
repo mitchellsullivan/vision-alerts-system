@@ -1,0 +1,47 @@
+{
+  "name": "AlertEvent",
+  "fields": [
+    {
+      "fieldName": "applicationName",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "moduleName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "actionName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "suggestedPriority",
+      "fieldType": "AlertPriority",
+      "fieldValues": "TRACE,DEBUG,INFO,WARNING,ERROR,FATAL"
+    },
+    {
+      "fieldName": "message",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "stackItem",
+      "otherEntityRelationshipName": "alertEvent",
+      "relationshipName": "stackItem"
+    }
+  ],
+  "changelogDate": "20200910153647",
+  "entityTableName": "alert_event",
+  "dto": "mapstruct",
+  "pagination": "infinite-scroll",
+  "service": "serviceClass",
+  "jpaMetamodelFiltering": true,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

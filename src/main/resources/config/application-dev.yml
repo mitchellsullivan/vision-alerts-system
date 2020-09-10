@@ -37,9 +37,9 @@ spring:
       indent-output: true
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:sqlserver://localhost:1433;database=VisionAlertSystem
-    username: SA
-    password: yourStrong(!)Password
+    url: jdbc:sqlserver://localhost:1433;database=vision_alert_system_dev
+    username: vision_alert_system
+    password: vision1.
     hikari:
       poolName: Hikari
       auto-commit: false

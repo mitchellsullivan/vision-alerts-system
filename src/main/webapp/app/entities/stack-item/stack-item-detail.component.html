@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="stackItem">
+            <h2><span jhiTranslate="visionAlertSystemApp.stackItem.detail.title">Stack Item</span> {{ stackItem.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="visionAlertSystemApp.stackItem.sequenceNo">Sequence No</span></dt>
+                <dd>
+                    <span>{{ stackItem.sequenceNo }}</span>
+                </dd>
+                <dt><span jhiTranslate="visionAlertSystemApp.stackItem.fileName">File Name</span></dt>
+                <dd>
+                    <span>{{ stackItem.fileName }}</span>
+                </dd>
+                <dt><span jhiTranslate="visionAlertSystemApp.stackItem.className">Class Name</span></dt>
+                <dd>
+                    <span>{{ stackItem.className }}</span>
+                </dd>
+                <dt><span jhiTranslate="visionAlertSystemApp.stackItem.methodName">Method Name</span></dt>
+                <dd>
+                    <span>{{ stackItem.methodName }}</span>
+                </dd>
+                <dt><span jhiTranslate="visionAlertSystemApp.stackItem.lineNumber">Line Number</span></dt>
+                <dd>
+                    <span>{{ stackItem.lineNumber }}</span>
+                </dd>
+                <dt><span jhiTranslate="visionAlertSystemApp.stackItem.alertEvent">Alert Event</span></dt>
+                <dd>
+                    <div *ngIf="stackItem.alertEventId">
+                        <a [routerLink]="['/alert-event', stackItem.alertEventId, 'view']">{{ stackItem.alertEventId }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/stack-item', stackItem.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

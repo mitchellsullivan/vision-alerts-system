@@ -48,6 +48,10 @@ public class CacheConfiguration {
             createCache(cm, com.visiongraphics_inc.alert_system.domain.User.class.getName());
             createCache(cm, com.visiongraphics_inc.alert_system.domain.Authority.class.getName());
             createCache(cm, com.visiongraphics_inc.alert_system.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.visiongraphics_inc.alert_system.domain.AlertEvent.class.getName());
+            createCache(cm, com.visiongraphics_inc.alert_system.domain.AlertEvent.class.getName() + ".stackTraces");
+            createCache(cm, com.visiongraphics_inc.alert_system.domain.StackItem.class.getName());
+            createCache(cm, com.visiongraphics_inc.alert_system.domain.AlertEvent.class.getName() + ".stackItems");
             // jhipster-needle-ehcache-add-entry
         };
     }
