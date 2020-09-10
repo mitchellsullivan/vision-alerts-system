@@ -1,6 +1,6 @@
 <div>
-    <h2 id="page-heading">
-        <span jhiTranslate="visionAlertSystemApp.alertEvent.home.title">Alert Events</span>
+    <h3 id="page-heading">
+        <span jhiTranslate="visionAlertSystemApp.alertEvent.home.title">Alerts Log</span>
 
 <!--        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-alert-event" [routerLink]="['/alert-event/new']">-->
 <!--            <fa-icon icon="plus"></fa-icon>-->
@@ -8,18 +8,18 @@
 <!--            Create a new Alert Event-->
 <!--            </span>-->
 <!--        </button>-->
-    </h2>
+    </h3>
 
     <jhi-alert-error></jhi-alert-error>
 
     <jhi-alert></jhi-alert>
 
     <div class="alert alert-warning" id="no-result" *ngIf="alertEvents?.length === 0">
-        <span jhiTranslate="visionAlertSystemApp.alertEvent.home.notFound">No alertEvents found</span>
+        <span jhiTranslate="visionAlertSystemApp.alertEvent.home.notFound">No Alerts found</span>
     </div>
 
     <div class="table-responsive" id="entities" *ngIf="alertEvents && alertEvents.length > 0">
-        <table class="table table-striped" aria-describedby="page-heading">
+        <table class="table table-striped" id="alert-log-table" aria-describedby="page-heading">
             <thead>
                 <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
                     <th scope="col"  jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
@@ -32,7 +32,7 @@
                 </tr>
             </thead>
             <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
-                <tr *ngFor="let alertEvent of alertEvents ;trackBy: trackId">
+                <tr *ngFor="let alertEvent of alertEvents ;trackBy: trackId" style="line-height: 0.75">
                     <td><a [routerLink]="['/alert-event', alertEvent.id, 'view']">{{ alertEvent.id }}</a></td>
                     <td>{{ alertEvent.applicationName }}</td>
                     <td>{{ alertEvent.moduleName }}</td>
@@ -43,7 +43,7 @@
                         <div class="btn-group">
                             <button type="submit"
                                     [routerLink]="['/alert-event', alertEvent.id, 'view']"
-                                    class="btn btn-info btn-md">
+                                    class="btn btn-info btn-sm">
                                 <fa-icon icon="eye"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                             </button>
@@ -56,7 +56,7 @@
                             </button>
 
                             <button type="submit" (click)="delete(alertEvent)"
-                                    class="btn btn-danger btn-md">
+                                    class="btn btn-danger btn-sm">
                                 <fa-icon icon="times"></fa-icon>
                                 <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
                             </button>

@@ -7,9 +7,9 @@
         "createOrEditLabel": "Create or edit a Alert Event",
         "notFound": "No Alert Events found"
       },
-      "created": "A new Alert Event is created with identifier {{ param }}",
-      "updated": "A Alert Event is updated with identifier {{ param }}",
-      "deleted": "A Alert Event is deleted with identifier {{ param }}",
+      "created": "New Alert Event created with identifier {{ param }}",
+      "updated": "Alert Event updated with identifier {{ param }}",
+      "deleted": "Alert Event deleted with identifier {{ param }}",
       "delete": {
         "question": "Are you sure you want to delete Alert Event {{ id }}?"
       },
