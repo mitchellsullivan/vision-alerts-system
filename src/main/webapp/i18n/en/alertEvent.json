@@ -2,7 +2,7 @@
   "visionAlertSystemApp": {
     "alertEvent": {
       "home": {
-        "title": "Alert Events",
+        "title": "Alerts Log",
         "createLabel": "Create a new Alert Event",
         "createOrEditLabel": "Create or edit a Alert Event",
         "notFound": "No Alert Events found"

@@ -9,11 +9,11 @@
     },
     "messages": {
       "error": {
-        "authentication": "<strong>Failed to sign in!</strong> Please check your credentials and try again."
+        "authentication": "<strong>Sign in failed - </strong> Invalid credentials."
       }
     },
     "password": {
-      "forgot": "Did you forget your password?"
+      "forgot": "Forgot password"
     }
   }
 }
